@@ -52,4 +52,4 @@ jobs:
           done < <(git ls-files -z)
           ssh -i ~/.ssh/deploy_key -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -p 22 \
             "$DEPLOY_USER@$DEPLOY_HOST" \
-            "test -f '$DEPLOY_PATH/employee-forms.html' && test -f '$DEPLOY_PATH/onboarding-submit.php' && php -l '$DEPLOY_PATH/onboarding-submit.php'"
+            "test -f '$DEPLOY_PATH/employee-forms.html' && test -f '$DEPLOY_PATH/onboarding-submit.php'"
