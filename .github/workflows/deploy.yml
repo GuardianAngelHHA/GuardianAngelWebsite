@@ -32,11 +32,12 @@ jobs:
           DEPLOY_HOST: ${{ secrets.GODADDY_HOST }}
           DEPLOY_USER: ${{ secrets.GODADDY_USER }}
         run: |
-          DEPLOY_PATH="/home/$DEPLOY_USER/public_html"
+          DEPLOY_PATH="/home/il9883llvayk/public_html"
           if [[ ! "$DEPLOY_USER" =~ ^[a-zA-Z0-9_-]+$ ]]; then
             echo "The cPanel username contains unexpected characters."
             exit 1
           fi
+          echo "Deploying website files to the verified cPanel web root."
           ssh -i ~/.ssh/deploy_key -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -p 22 \
             "$DEPLOY_USER@$DEPLOY_HOST" "mkdir -p '$DEPLOY_PATH'"
           while IFS= read -r -d '' file; do
