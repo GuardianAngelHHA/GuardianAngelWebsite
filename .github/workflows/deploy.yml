@@ -32,10 +32,9 @@ jobs:
           DEPLOY_HOST: ${{ secrets.GODADDY_HOST }}
           DEPLOY_USER: ${{ secrets.GODADDY_USER }}
         run: |
-          DEPLOY_PATH="$(ssh -i ~/.ssh/deploy_key -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -p 22 \
-            "$DEPLOY_USER@$DEPLOY_HOST" 'printf "%s/public_html" "$HOME"')"
-          if [[ -z "$DEPLOY_PATH" || "$DEPLOY_PATH" != /* ]]; then
-            echo "Could not determine the cPanel public_html path."
+          DEPLOY_PATH="/home/$DEPLOY_USER/public_html"
+          if [[ ! "$DEPLOY_USER" =~ ^[a-zA-Z0-9_-]+$ ]]; then
+            echo "The cPanel username contains unexpected characters."
             exit 1
           fi
           ssh -i ~/.ssh/deploy_key -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -p 22 \
