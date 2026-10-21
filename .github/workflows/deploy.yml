@@ -1,0 +1,45 @@
+name: Deploy to GoDaddy cPanel
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out website
+        uses: actions/checkout@v4
+
+      - name: Configure SSH
+        env:
+          DEPLOY_KEY: ${{ secrets.GODADDY_SSH_KEY }}
+          KNOWN_HOSTS: ${{ secrets.GODADDY_KNOWN_HOSTS }}
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$DEPLOY_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          printf '%s\n' "$KNOWN_HOSTS" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
+
+      - name: Copy website files to cPanel
+        env:
+          DEPLOY_HOST: ${{ secrets.GODADDY_HOST }}
+          DEPLOY_USER: ${{ secrets.GODADDY_USER }}
+          DEPLOY_PATH: ${{ secrets.GODADDY_PATH }}
+        run: |
+          ssh -i ~/.ssh/deploy_key -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -p 22 \
+            "$DEPLOY_USER@$DEPLOY_HOST" "mkdir -p '$DEPLOY_PATH'"
+          while IFS= read -r -d '' file; do
+            case "$file" in
+              *.html|*.css|*.js|*.php|*.pdf|*.png|*.ico|assets/*|Forms/*) ;;
+              *) continue ;;
+            esac
+            remote_dir="$DEPLOY_PATH/$(dirname "$file")"
+            ssh -i ~/.ssh/deploy_key -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -p 22 \
+              "$DEPLOY_USER@$DEPLOY_HOST" "mkdir -p '$remote_dir'"
+            scp -i ~/.ssh/deploy_key -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -P 22 \
+              "$file" "$DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH/$file"
+          done < <(git ls-files -z)
