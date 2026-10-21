@@ -399,7 +399,6 @@ function initEmploymentApplication() {
   }
 
   const pdfSourceUrl = "Forms/Guardian_Angel_Employment_Application.pdf";
-  const recipient = applicationMain?.dataset.applicationRecipient || "info@guardianangelcareohio.com";
   const submitEndpoint = (applicationMain?.dataset.applicationEndpoint || "").trim();
   const reviewSections = [
     {
@@ -960,54 +959,25 @@ function initEmploymentApplication() {
   }
 
   async function submitApplication(pdfBytes, fileName) {
-    if (submitEndpoint) {
-      try {
-        const formData = new FormData();
-        const file = new File([pdfBytes], fileName, { type: "application/pdf" });
-
-        formData.append("recipient", recipient);
-        formData.append("applicantName", readAnswer("fullName"));
-        formData.append("applicantPhone", readAnswer("mobilePhone") || readAnswer("homePhone"));
-        formData.append("position", readAnswer("positionApplyingFor"));
-        formData.append("subject", `Guardian Angel Employment Application - ${readAnswer("fullName") || "Applicant"}`);
-        formData.append("applicationPdf", file);
-
-        const response = await fetch(submitEndpoint, {
-          method: "POST",
-          body: formData,
-        });
-        const contentType = response.headers.get("content-type") || "";
-
-        if (!contentType.includes("application/json")) {
-          throw new Error("Application endpoint returned a non-JSON response.");
-        }
-
-        const payload = await response.json();
-
-        if (!response.ok || payload.ok !== true) {
-          throw new Error(payload.message || "Application endpoint rejected the submission.");
-        }
-
-        return "sent";
-      } catch (error) {
-        // Static hosts cannot email attachments directly, so keep a no-data-loss fallback.
-      }
+    if (!submitEndpoint) {
+      throw new Error("Secure submission is not available. Please contact Guardian Angel for a secure return method.");
     }
 
-    const subjectLine = `Guardian Angel Employment Application - ${readAnswer("fullName") || "Applicant"}`;
-    const bodyText = [
-      `Applicant: ${readAnswer("fullName") || "Applicant"}`,
-      `Phone: ${readAnswer("mobilePhone") || readAnswer("homePhone") || "Not provided"}`,
-      `Position: ${readAnswer("positionApplyingFor") || "Not provided"}`,
-      "",
-      `The completed employment application PDF was downloaded as ${fileName}. Please attach that PDF to this email before sending.`,
-    ].join("\n");
-    const mailto = `mailto:${recipient}?subject=${encodeURIComponent(subjectLine)}&body=${encodeURIComponent(bodyText)}`;
+    const formData = new FormData();
+    formData.append("applicationPdf", new File([pdfBytes], fileName, { type: "application/pdf" }));
 
-    await copyTextValue(`To: ${recipient}\nSubject: ${subjectLine}\n\n${bodyText}`);
-    window.location.href = mailto;
+    const response = await fetch(submitEndpoint, { method: "POST", body: formData });
+    const contentType = response.headers.get("content-type") || "";
+    if (!contentType.includes("application/json")) {
+      throw new Error("The secure submission service is unavailable. Please contact Guardian Angel for a secure return method.");
+    }
 
-    return "fallback";
+    const payload = await response.json();
+    if (!response.ok || payload.ok !== true) {
+      throw new Error(payload.message || "The secure submission could not be completed.");
+    }
+
+    return payload;
   }
 
   prevButton.addEventListener("click", () => {
@@ -1082,21 +1052,21 @@ function initEmploymentApplication() {
       return;
     }
 
+    submitButton.disabled = true;
     try {
       setResponse("Preparing application submission...");
       const pdfBytes = await ensureLatestPdf();
       const fileName = buildFileName();
 
       downloadPdf(pdfBytes, fileName);
-      const submitResult = await submitApplication(pdfBytes, fileName);
-
-      setResponse(
-        submitResult === "sent"
-          ? `Completed application downloaded and sent to ${recipient}.`
-          : `Completed application downloaded. A pre-addressed email draft is opening for ${recipient}.`
-      );
+      const result = await submitApplication(pdfBytes, fileName);
+      setResponse(result.notificationSent
+        ? `Your application was received. Reference: ${result.reference}.`
+        : `Your application was stored. Reference: ${result.reference}. Please call Guardian Angel to let the office know the application is ready.`);
     } catch (error) {
-      setResponse("The application was downloaded, but the email submission did not complete. Please email the downloaded PDF to info@guardianangelcareohio.com.");
+      setResponse(`Your application PDF was downloaded, but secure submission failed. Keep the PDF and contact Guardian Angel for a secure return method. ${error.message || ""}`.trim());
+    } finally {
+      submitButton.disabled = false;
     }
   });
 

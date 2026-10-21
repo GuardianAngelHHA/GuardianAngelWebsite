@@ -35,11 +35,37 @@
       <section class="employee-forms-intro">
         <p class="eyebrow">Employee Onboarding</p>
         <h1>Complete your employee forms.</h1>
-        <p class="intro-copy">Fill out the forms below on your device, save a copy for your records, and contact Guardian Angel for the approved secure way to return them.</p>
+        <p class="intro-copy">Complete these forms after accepting a job offer, save copies for your records, and submit them through the secure onboarding form below.</p>
         <div class="privacy-note" role="note">
-          <strong>Your information stays on this device while you fill out this page.</strong>
-          <span>This page does not upload or email your information. Do not send completed forms or identity documents by regular email.</span>
+          <strong>Submit onboarding forms only after accepting a job offer.</strong>
+          <span>Completed PDFs are sent over HTTPS and stored in a private cPanel folder outside the public website. Email carries a notification only; it does not include your forms. Never upload or email images of identity documents.</span>
         </div>
+      </section>
+
+      <section class="onboarding-submit-card" id="submit-onboarding-forms" aria-labelledby="onboarding-submit-title">
+        <p class="eyebrow">After accepting an offer</p>
+        <h2 id="onboarding-submit-title">Submit your onboarding forms</h2>
+        <p>Complete and save each official PDF, then attach all three below. Form I-9 Section 1 must be completed after you accept an offer and no later than your first day of work. Bring your chosen acceptable documents to Guardian Angel so the employer can complete its review and Section 2.</p>
+        <form id="onboardingSubmissionForm" class="onboarding-submit-form" action="onboarding-submit.php" method="post" enctype="multipart/form-data">
+          <label>
+            Completed Form W-4 (PDF, up to 10 MB)
+            <input type="file" name="w4Pdf" accept="application/pdf,.pdf" required>
+          </label>
+          <label>
+            Completed Form I-9 (PDF, up to 10 MB)
+            <input type="file" name="i9Pdf" accept="application/pdf,.pdf" required>
+          </label>
+          <label>
+            Completed Ohio IT 4 (PDF, up to 10 MB)
+            <input type="file" name="it4Pdf" accept="application/pdf,.pdf" required>
+          </label>
+          <label class="onboarding-confirmation">
+            <input type="checkbox" name="offerAccepted" value="yes" required>
+            <span>I have accepted a job offer from Guardian Angel and am submitting these forms for onboarding.</span>
+          </label>
+          <button class="button button-primary" type="submit">Submit onboarding forms securely</button>
+          <p class="form-response" id="onboardingSubmitResponse" aria-live="polite"></p>
+        </form>
       </section>
 
       <section class="employee-form-cards" aria-label="Required employee forms">
@@ -111,9 +137,9 @@
       </section>
 
       <section class="return-instructions">
-        <p class="eyebrow">Returning your forms</p>
-        <h2>Need a secure way to submit them?</h2>
-        <p>Contact Guardian Angel to arrange an approved secure return method or an in-person handoff. For Form I-9, bring your chosen acceptable documents so the employer can complete its review and Section 2.</p>
+        <p class="eyebrow">Questions?</p>
+        <h2>Need help completing your forms?</h2>
+        <p>If you need help completing the forms, contact Guardian Angel. For Form I-9, bring your chosen acceptable documents so the employer can complete its review and Section 2.</p>
         <a class="button button-secondary" href="index.html#contact">Contact Guardian Angel</a>
       </section>
     </main>

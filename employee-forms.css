@@ -53,6 +53,71 @@
   color: var(--navy-deep);
 }
 
+.onboarding-submit-card {
+  max-width: 900px;
+  margin: 0 auto 28px;
+  padding: 30px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: var(--shadow-soft);
+}
+
+.onboarding-submit-card h2 {
+  margin: 0 0 12px;
+  color: var(--navy-deep);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 2.3rem;
+  line-height: 1;
+}
+
+.onboarding-submit-card > p:not(.eyebrow) {
+  line-height: 1.7;
+}
+
+.onboarding-submit-form {
+  display: grid;
+  gap: 16px;
+  margin-top: 22px;
+}
+
+.onboarding-submit-form > label:not(.onboarding-confirmation) {
+  display: grid;
+  gap: 8px;
+  color: var(--navy-deep);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.onboarding-submit-form input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--line-strong);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+}
+
+.onboarding-confirmation {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.55;
+}
+
+.onboarding-confirmation input {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: var(--navy);
+}
+
+.onboarding-submit-form .button {
+  justify-self: start;
+}
+
 .employee-form-cards {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -251,6 +316,7 @@
   }
 
   .employee-form-card,
+  .onboarding-submit-card,
   .return-instructions {
     padding: 24px 20px;
   }
@@ -269,6 +335,7 @@
 
   .employee-forms-page > header,
   .employee-forms-intro,
+  .onboarding-submit-card,
   .employee-form-card:not(.employee-form-card-wide),
   .return-instructions,
   .employee-forms-footer,
