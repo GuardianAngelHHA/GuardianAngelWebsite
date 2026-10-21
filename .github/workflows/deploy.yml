@@ -31,13 +31,18 @@ jobs:
         env:
           DEPLOY_HOST: ${{ secrets.GODADDY_HOST }}
           DEPLOY_USER: ${{ secrets.GODADDY_USER }}
-          DEPLOY_PATH: ${{ secrets.GODADDY_PATH }}
         run: |
+          DEPLOY_PATH="$(ssh -i ~/.ssh/deploy_key -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -p 22 \
+            "$DEPLOY_USER@$DEPLOY_HOST" 'printf "%s/public_html" "$HOME"')"
+          if [[ -z "$DEPLOY_PATH" || "$DEPLOY_PATH" != /* ]]; then
+            echo "Could not determine the cPanel public_html path."
+            exit 1
+          fi
           ssh -i ~/.ssh/deploy_key -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -p 22 \
             "$DEPLOY_USER@$DEPLOY_HOST" "mkdir -p '$DEPLOY_PATH'"
           while IFS= read -r -d '' file; do
             case "$file" in
-              *.html|*.css|*.js|*.php|*.pdf|*.png|*.ico|assets/*|Forms/*) ;;
+              .htaccess|*.html|*.css|*.js|*.php|*.pdf|*.png|*.ico|assets/*|Forms/*) ;;
               *) continue ;;
             esac
             remote_dir="$DEPLOY_PATH/$(dirname "$file")"
@@ -46,3 +51,6 @@ jobs:
             scp -i ~/.ssh/deploy_key -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -P 22 \
               "$file" "$DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH/$file"
           done < <(git ls-files -z)
+          ssh -i ~/.ssh/deploy_key -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -p 22 \
+            "$DEPLOY_USER@$DEPLOY_HOST" \
+            "test -f '$DEPLOY_PATH/employee-forms.html' && test -f '$DEPLOY_PATH/onboarding-submit.php' && php -l '$DEPLOY_PATH/onboarding-submit.php'"
