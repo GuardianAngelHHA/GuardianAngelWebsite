@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Complete employee onboarding forms for Guardian Angel Home Health & Medical Transport.">
+  <title>Employee Forms | Guardian Angel Home Health &amp; Medical Transport</title>
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="employee-forms.css">
+</head>
+<body>
+  <div class="page-shell employee-forms-page">
+    <header class="application-header">
+      <nav class="top-nav" aria-label="Main navigation">
+        <a class="brand" href="index.html" aria-label="Guardian Angel Home Health and Medical Transport home">
+          <img class="brand-logo" src="assets/guardian-angel-logo.png" alt="Guardian Angel Home Health and Medical Transport">
+        </a>
+        <div class="nav-cluster">
+          <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="application.html">Employment Application</a>
+            <a href="employee-forms.html" aria-current="page">Employee Forms</a>
+          </div>
+          <div class="nav-actions">
+            <a class="button button-secondary button-small" href="index.html#contact">Contact</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="employee-forms-main">
+      <section class="employee-forms-intro">
+        <p class="eyebrow">Employee Onboarding</p>
+        <h1>Complete your employee forms.</h1>
+        <p class="intro-copy">Fill out the forms below on your device, save a copy for your records, and contact Guardian Angel for the approved secure way to return them.</p>
+        <div class="privacy-note" role="note">
+          <strong>Your information stays on this device while you fill out this page.</strong>
+          <span>This page does not upload or email your information. Do not send completed forms or identity documents by regular email.</span>
+        </div>
+      </section>
+
+      <section class="employee-form-cards" aria-label="Required employee forms">
+        <article class="employee-form-card">
+          <span class="form-number">01</span>
+          <p class="eyebrow">Federal tax withholding</p>
+          <h2>Form W-4</h2>
+          <p>Complete the current 2026 Employee’s Withholding Certificate. The PDF can be filled in a compatible browser or PDF reader.</p>
+          <a class="button button-primary" href="Forms/Employee_W-4_2026.pdf" target="_blank" rel="noopener">Open fillable W-4</a>
+          <p class="form-help">After completing it, use your PDF reader’s Save or Download option. You can also <a href="https://www.irs.gov/forms-pubs/about-form-w-4" target="_blank" rel="noopener">view the latest W-4 at IRS.gov</a>.</p>
+        </article>
+
+        <article class="employee-form-card">
+          <span class="form-number">02</span>
+          <p class="eyebrow">Employment eligibility</p>
+          <h2>Form I-9</h2>
+          <p>Complete Section 1 after accepting the job offer and no later than your first day of work. Your employer completes Section 2 after reviewing acceptable documents.</p>
+          <a class="button button-primary" href="Forms/Employment_Eligibility_I-9.pdf" target="_blank" rel="noopener">Open fillable I-9</a>
+          <p class="form-help">You choose which acceptable documents to present. Do not email document images. <a href="https://www.uscis.gov/i-9-central" target="_blank" rel="noopener">Read USCIS I-9 guidance</a>.</p>
+        </article>
+
+        <article class="employee-form-card employee-form-card-wide">
+          <span class="form-number">03</span>
+          <p class="eyebrow">Ohio tax withholding</p>
+          <h2>Ohio IT 4</h2>
+          <p>Complete the fields below. When you select <strong>Print / Save as PDF</strong>, choose “Save as PDF” in the print dialog to keep a copy. You may also print and sign the form.</p>
+          <form class="it4-form" id="it4Form">
+            <div class="it4-section-title">Section I: Personal information</div>
+            <div class="it4-grid">
+              <label>Employee name<input name="employeeName" autocomplete="name" required></label>
+              <label>Social Security number<input name="ssn" inputmode="numeric" autocomplete="off" required></label>
+              <label class="it4-span-two">Home address, city, state, ZIP<input name="address" autocomplete="street-address" required></label>
+              <label>Ohio school district of residence<input name="schoolDistrict" required></label>
+              <label>School district number (4 digits)<input name="schoolDistrictNumber" inputmode="numeric" maxlength="4" required></label>
+            </div>
+
+            <div class="it4-section-title">Section II: Claiming withholding exemptions</div>
+            <div class="it4-grid it4-grid-three">
+              <label>1. Enter 0 if claimed as a dependent; otherwise 1<input type="number" name="dependentExemption" min="0" max="1" value="1" required></label>
+              <label>2. Enter 0 if single or spouse files separately; otherwise 1<input type="number" name="maritalExemption" min="0" max="1" value="0" required></label>
+              <label>3. Number of dependents<input type="number" name="dependents" min="0" value="0" required></label>
+              <label>4. Total exemptions (lines 1 + 2 + 3)<input type="number" name="totalExemptions" readonly></label>
+              <label>5. Additional Ohio withholding per pay period ($)<input type="number" name="additionalWithholding" min="0" step="0.01" value="0.00"></label>
+            </div>
+
+            <div class="it4-section-title">Section III: Withholding waiver, if applicable</div>
+            <p class="it4-instruction">Check a box only if it applies to you. Review the official instructions before claiming a waiver.</p>
+            <div class="it4-checks">
+              <label><input type="checkbox" name="waiver" value="Resident of Indiana, Kentucky, Michigan, Pennsylvania, or West Virginia"> I am a full-year resident of Indiana, Kentucky, Michigan, Pennsylvania, or West Virginia.</label>
+              <label><input type="checkbox" name="waiver" value="Ohio resident military servicemember stationed outside Ohio"> I am an Ohio resident military servicemember stationed outside Ohio on active duty military orders.</label>
+              <label><input type="checkbox" name="waiver" value="Nonresident military servicemember stationed in Ohio"> I am a nonresident military servicemember stationed in Ohio due to military orders.</label>
+              <label><input type="checkbox" name="waiver" value="Nonresident civilian spouse of military servicemember"> I am a nonresident civilian spouse present in Ohio solely because of my spouse’s military orders.</label>
+              <label><input type="checkbox" name="waiver" value="Exempt under Ohio Revised Code 5747.06(A)(1) through (6)"> I am exempt from Ohio withholding under R.C. 5747.06(A)(1) through (6).</label>
+            </div>
+
+            <div class="it4-section-title">Section IV: Signature</div>
+            <p class="it4-instruction">By signing, I declare under penalties of perjury that this certificate is true, correct, and complete.</p>
+            <div class="it4-grid">
+              <label>Type your full legal name as your signature<input name="signature" autocomplete="name" required></label>
+              <label>Date<input name="signatureDate" type="date" required></label>
+            </div>
+            <div class="it4-actions">
+              <button class="button button-primary" type="button" id="printIt4">Print / Save as PDF</button>
+              <button class="button button-secondary" type="reset">Clear IT 4 fields</button>
+            </div>
+          </form>
+          <p class="form-help">The official Ohio IT 4 includes instructions and other details. <a href="Forms/Ohio_IT-4.pdf" target="_blank" rel="noopener">Open the official Ohio IT 4 PDF</a> or <a href="https://tax.ohio.gov/business/ohio-business-taxes/withholding" target="_blank" rel="noopener">review Ohio employer withholding information</a>.</p>
+        </article>
+      </section>
+
+      <section class="return-instructions">
+        <p class="eyebrow">Returning your forms</p>
+        <h2>Need a secure way to submit them?</h2>
+        <p>Contact Guardian Angel to arrange an approved secure return method or an in-person handoff. For Form I-9, bring your chosen acceptable documents so the employer can complete its review and Section 2.</p>
+        <a class="button button-secondary" href="index.html#contact">Contact Guardian Angel</a>
+      </section>
+    </main>
+
+    <footer class="site-footer employee-forms-footer">
+      <div class="footer-brand-block">
+        <a class="brand" href="index.html" aria-label="Guardian Angel Home"><img class="brand-logo" src="assets/guardian-angel-logo.png" alt="Guardian Angel Home Health and Medical Transport"></a>
+        <p>Employee onboarding forms for Guardian Angel Home Health &amp; Medical Transport.</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="index.html">Home</a>
+        <a href="application.html">Employment Application</a>
+        <a href="employee-forms.html">Employee Forms</a>
+      </nav>
+      <p class="footer-note">© <span id="currentYear"></span> Guardian Angel Home Health &amp; Medical Transport</p>
+    </footer>
+  </div>
+  <script src="employee-forms.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,369 @@
+.employee-forms-page {
+  min-height: 100vh;
+}
+
+.employee-forms-page .application-header {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 30px 24px 0;
+}
+
+.employee-forms-main {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 58px 24px 92px;
+}
+
+.employee-forms-intro {
+  max-width: 850px;
+  margin: 0 auto 38px;
+  text-align: center;
+}
+
+.employee-forms-intro h1 {
+  margin: 0 0 16px;
+  color: var(--navy-deep);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(2.8rem, 6vw, 4.6rem);
+  line-height: 0.98;
+}
+
+.intro-copy {
+  max-width: 690px;
+  margin: 0 auto;
+  font-size: 1.08rem;
+  line-height: 1.75;
+}
+
+.privacy-note {
+  display: grid;
+  gap: 5px;
+  margin: 28px auto 0;
+  padding: 18px 22px;
+  border: 1px solid rgba(39, 57, 140, 0.18);
+  border-radius: var(--radius-sm);
+  background: rgba(238, 243, 255, 0.88);
+  text-align: left;
+  line-height: 1.6;
+}
+
+.privacy-note strong {
+  color: var(--navy-deep);
+}
+
+.employee-form-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  align-items: start;
+}
+
+.employee-form-card {
+  position: relative;
+  padding: 30px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: var(--shadow-soft);
+}
+
+.employee-form-card .form-number {
+  position: absolute;
+  top: 24px;
+  right: 26px;
+  color: rgba(39, 57, 140, 0.2);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.employee-form-card h2,
+.return-instructions h2 {
+  margin: 0 0 12px;
+  color: var(--navy-deep);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 2.3rem;
+  line-height: 1;
+}
+
+.employee-form-card > p:not(.eyebrow) {
+  line-height: 1.7;
+}
+
+.employee-form-card > .button {
+  margin-top: 8px;
+}
+
+.form-help {
+  margin: 18px 0 0;
+  color: var(--ink);
+  font-size: 0.88rem;
+  line-height: 1.65;
+}
+
+.form-help a {
+  color: var(--navy);
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.employee-form-card-wide {
+  grid-column: 1 / -1;
+}
+
+.employee-form-card-wide > p {
+  max-width: 900px;
+}
+
+.it4-form {
+  display: grid;
+  gap: 17px;
+  margin-top: 24px;
+}
+
+.it4-section-title {
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line-strong);
+  color: var(--navy-deep);
+  font-weight: 800;
+}
+
+.it4-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.it4-grid-three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.it4-grid label {
+  display: grid;
+  gap: 7px;
+  color: var(--navy-deep);
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.it4-grid input {
+  width: 100%;
+  min-height: 46px;
+  padding: 10px 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--navy-deep);
+  font: inherit;
+}
+
+.it4-grid input[readonly] {
+  background: var(--mist);
+}
+
+.it4-span-two {
+  grid-column: 1 / -1;
+}
+
+.it4-instruction {
+  margin: -6px 0 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.it4-checks {
+  display: grid;
+  gap: 10px;
+}
+
+.it4-checks label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.it4-checks input {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: var(--navy);
+}
+
+.it4-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.return-instructions {
+  margin: 38px auto 0;
+  padding: 32px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, rgba(248, 226, 238, 0.78), rgba(238, 243, 255, 0.9));
+  text-align: center;
+}
+
+.return-instructions p:not(.eyebrow) {
+  max-width: 800px;
+  margin: 0 auto 20px;
+  line-height: 1.7;
+}
+
+.employee-forms-footer {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 30px 24px 42px;
+}
+
+.employee-forms-footer .footer-note {
+  margin-top: 24px;
+}
+
+@media (max-width: 760px) {
+  .employee-forms-page .application-header {
+    padding: 22px 18px 0;
+  }
+
+  .employee-forms-main {
+    padding: 40px 18px 64px;
+  }
+
+  .employee-form-cards,
+  .it4-grid,
+  .it4-grid-three {
+    grid-template-columns: 1fr;
+  }
+
+  .employee-form-card-wide {
+    grid-column: auto;
+  }
+
+  .it4-span-two {
+    grid-column: auto;
+  }
+
+  .employee-form-card,
+  .return-instructions {
+    padding: 24px 20px;
+  }
+}
+
+@media print {
+  @page {
+    size: letter;
+    margin: 0.45in;
+  }
+
+  body,
+  body::before {
+    background: #fff !important;
+  }
+
+  .employee-forms-page > header,
+  .employee-forms-intro,
+  .employee-form-card:not(.employee-form-card-wide),
+  .return-instructions,
+  .employee-forms-footer,
+  .employee-form-card-wide > .form-number,
+  .employee-form-card-wide > .eyebrow,
+  .employee-form-card-wide > p,
+  .it4-actions,
+  .employee-form-card-wide > .form-help {
+    display: none !important;
+  }
+
+  .employee-forms-main {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .employee-form-cards {
+    display: block;
+  }
+
+  .employee-form-card-wide {
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .employee-form-card-wide h2 {
+    margin: 0 0 10px;
+    text-align: center;
+    font: 700 17pt Arial, sans-serif;
+  }
+
+  .employee-form-card-wide h2::after {
+    content: " - Employee's Withholding Exemption Certificate";
+  }
+
+  .it4-form {
+    gap: 8px;
+    margin: 0;
+    color: #000;
+    font: 9pt Arial, sans-serif;
+  }
+
+  .it4-section-title {
+    padding-bottom: 3px;
+    border-color: #555;
+    color: #000;
+    font-size: 10pt;
+  }
+
+  .it4-grid,
+  .it4-grid-three {
+    gap: 6px 10px;
+  }
+
+  .it4-grid label {
+    gap: 2px;
+    color: #000;
+    font-size: 8pt;
+  }
+
+  .it4-grid input {
+    min-height: 25px;
+    padding: 3px 5px;
+    border: 0;
+    border-bottom: 1px solid #555;
+    border-radius: 0;
+    background: #fff !important;
+    color: #000;
+    font: 10pt Arial, sans-serif;
+    appearance: none;
+  }
+
+  .it4-instruction,
+  .it4-checks label {
+    color: #000;
+    font-size: 8pt;
+    line-height: 1.35;
+  }
+
+  .it4-checks {
+    gap: 4px;
+  }
+
+  input[type="checkbox"] {
+    width: 13px;
+    height: 13px;
+    accent-color: #000;
+    print-color-adjust: exact;
+  }
+
+  .it4-form,
+  .it4-form * {
+    break-inside: avoid;
+  }
+}

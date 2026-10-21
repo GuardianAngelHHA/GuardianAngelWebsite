@@ -1,0 +1,9 @@
+# Local/internal working files that do not belong in the public website repo.
+/New folder/
+/Forms/*
+!/Forms/Guardian_Angel_Employment_Application.pdf
+!/Forms/Employee_W-4_2026.pdf
+!/Forms/Employment_Eligibility_I-9.pdf
+!/Forms/Ohio_IT-4.pdf
+/application-preview-*.png
+/employee-forms-site-update.zip

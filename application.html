@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employment Application | Guardian Angel Home Health &amp; Medical Transport</title>
+  <meta
+    name="description"
+    content="Complete the Guardian Angel Home Health and Medical Transport employment application online, preview the filled PDF, then download and submit your completed copy."
+  >
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="512x512" href="favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell application-page">
+    <header class="application-header" id="top">
+      <nav class="top-nav">
+        <a class="brand" href="index.html" aria-label="Guardian Angel Home Health and Medical Transport">
+          <img
+            class="brand-logo"
+            src="assets/guardian-angel-logo.png"
+            alt="Guardian Angel Home Health and Medical Transport logo"
+          >
+        </a>
+
+        <div class="nav-cluster">
+          <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="index.html#services">Services</a>
+            <a href="index.html#va-benefits">VA Benefits</a>
+            <a href="index.html#careers">Careers</a>
+            <a href="employee-forms.html">Employee Forms</a>
+            <a href="index.html#contact">Contact</a>
+          </div>
+          <div class="nav-actions">
+            <a class="button button-secondary button-small" href="index.html#careers">Caregiver Jobs</a>
+            <a class="button button-primary button-small" href="#application">Apply Online</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main
+      class="application-main"
+      id="application"
+      data-application-recipient="info@guardianangelcareohio.com"
+      data-application-endpoint="application-submit.php"
+    >
+      <section class="section application-section">
+        <div class="application-layout">
+          <aside class="application-sidebar reveal">
+            <p class="eyebrow">Employment Application</p>
+            <h1>Apply to join Guardian Angel.</h1>
+            <p>
+              Complete each card, review the filled application PDF, then download your completed copy.
+            </p>
+            <div class="application-status-card">
+              <span class="feature-tag" id="applicationStepCount">Step 1 of 10</span>
+              <strong id="applicationStepTitle">Personal information</strong>
+              <div class="va-progress-bar" aria-hidden="true">
+                <span class="va-progress-fill" id="applicationProgressFill"></span>
+              </div>
+            </div>
+            <a class="button button-secondary" href="Forms/Guardian_Angel_Employment_Application.pdf" target="_blank" rel="noopener">View Blank PDF</a>
+          </aside>
+
+          <form class="contact-form application-form reveal" id="employmentApplicationForm" novalidate>
+            <section class="application-step is-active" data-step-title="Personal information">
+              <div class="application-step-head">
+                <p class="eyebrow">Personal Information</p>
+                <h2>Tell us who you are and how to reach you.</h2>
+              </div>
+              <label>
+                Full Name
+                <input type="text" name="fullName" autocomplete="name" required>
+              </label>
+              <label>
+                Present Address
+                <input type="text" name="presentAddress" autocomplete="street-address" required>
+              </label>
+              <label>
+                City/State/Zip
+                <input type="text" name="cityStateZip" autocomplete="address-level2" required>
+              </label>
+              <div class="form-grid-two">
+                <label>
+                  Home Phone
+                  <input type="tel" name="homePhone" autocomplete="tel">
+                </label>
+                <label>
+                  Mobile/Cell
+                  <input type="tel" name="mobilePhone" autocomplete="tel" required>
+                </label>
+              </div>
+              <div class="form-grid-two">
+                <label>
+                  Social Security Number
+                  <input type="password" name="ssn" autocomplete="off" inputmode="numeric" placeholder="XXX-XX-XXXX">
+                </label>
+                <fieldset class="form-question compact-question">
+                  <legend>Are you at least 18 years old?</legend>
+                  <div class="choice-row">
+                    <label class="choice-pill"><input type="radio" name="atLeast18" value="Yes" required><span>Yes</span></label>
+                    <label class="choice-pill"><input type="radio" name="atLeast18" value="No" required><span>No</span></label>
+                  </div>
+                </fieldset>
+              </div>
+            </section>
+
+            <section class="application-step" data-step-title="Position desired" hidden>
+              <div class="application-step-head">
+                <p class="eyebrow">Position Desired</p>
+                <h2>Share the role and schedule you are looking for.</h2>
+              </div>
+              <div class="form-grid-two">
+                <label>
+                  Position Applying For
+                  <input type="text" name="positionApplyingFor" required>
+                </label>
+                <label>
+                  Salary Requirements
+                  <input type="text" name="salaryRequirements">
+                </label>
+              </div>
+              <fieldset class="form-question">
+                <legend>Employment Type</legend>
+                <div class="choice-row">
+                  <label class="choice-pill"><input type="checkbox" name="employmentType" value="Full Time"><span>Full Time</span></label>
+                  <label class="choice-pill"><input type="checkbox" name="employmentType" value="Part Time"><span>Part Time</span></label>
+                  <label class="choice-pill"><input type="checkbox" name="employmentType" value="Per Visit"><span>Per Visit</span></label>
+                  <label class="choice-pill"><input type="checkbox" name="employmentType" value="Pool"><span>Pool</span></label>
+                </div>
+              </fieldset>
+              <fieldset class="form-question">
+                <legend>Availability</legend>
+                <div class="choice-row">
+                  <label class="choice-pill"><input type="checkbox" name="availability" value="Day"><span>Day</span></label>
+                  <label class="choice-pill"><input type="checkbox" name="availability" value="Night"><span>Night</span></label>
+                  <label class="choice-pill"><input type="checkbox" name="availability" value="Evening"><span>Evening</span></label>
+                  <label class="choice-pill"><input type="checkbox" name="availability" value="Weekend"><span>Weekend</span></label>
+                </div>
+              </fieldset>
+              <fieldset class="form-question compact-question">
+                <legend>Are you a US Citizen?</legend>
+                <div class="choice-row">
+                  <label class="choice-pill"><input type="radio" name="usCitizen" value="Yes" required><span>Yes</span></label>
+                  <label class="choice-pill"><input type="radio" name="usCitizen" value="No" required><span>No</span></label>
+                </div>
+              </fieldset>
+              <fieldset class="form-question compact-question">
+                <legend>If no, do you have the legal right to remain permanently in the US?</legend>
+                <div class="choice-row">
+                  <label class="choice-pill"><input type="radio" name="legalRight" value="Yes"><span>Yes</span></label>
+                  <label class="choice-pill"><input type="radio" name="legalRight" value="No"><span>No</span></label>
+                  <label class="choice-pill"><input type="radio" name="legalRight" value="Not Applicable"><span>Not Applicable</span></label>
+                </div>
+              </fieldset>
+              <fieldset class="form-question compact-question">
+                <legend>Do you have adequate transportation to get to work on time and on short notice?</legend>
+                <div class="choice-row">
+                  <label class="choice-pill"><input type="radio" name="transportation" value="Yes" required><span>Yes</span></label>
+                  <label class="choice-pill"><input type="radio" name="transportation" value="No" required><span>No</span></label>
+                </div>
+              </fieldset>
+            </section>
+
+            <section class="application-step" data-step-title="Background information" hidden>
+              <div class="application-step-head">
+                <p class="eyebrow">Background Information</p>
+                <h2>Answer the background questions from the application.</h2>
+              </div>
+              <fieldset class="form-question">
+                <legend>Have you been convicted of a crime, excluding misdemeanors/traffic, or released from confinement following a conviction within the last 7 years?</legend>
+                <div class="choice-row">
+                  <label class="choice-pill"><input type="radio" name="convicted" value="Yes" required><span>Yes</span></label>
+                  <label class="choice-pill"><input type="radio" name="convicted" value="No" required><span>No</span></label>
+                </div>
+              </fieldset>
+              <label>
+                If yes, provide date, place, and nature
+                <textarea name="convictionDetails" rows="4"></textarea>
+              </label>
+              <fieldset class="form-question">
+                <legend>Are you presently charged with any violation of the law, excluding traffic?</legend>
+                <div class="choice-row">
+                  <label class="choice-pill"><input type="radio" name="presentlyCharged" value="Yes" required><span>Yes</span></label>
+                  <label class="choice-pill"><input type="radio" name="presentlyCharged" value="No" required><span>No</span></label>
+                </div>
+              </fieldset>
+              <label>
+                If yes, provide date, place, and nature
+                <textarea name="chargeDetails" rows="4"></textarea>
+              </label>
+            </section>
+
+            <section class="application-step" data-step-title="Educational history" hidden>
+              <div class="application-step-head">
+                <p class="eyebrow">Educational History</p>
+                <h2>List your school history.</h2>
+              </div>
+              <div class="application-repeat-group">
+                <h3>High School</h3>
+                <label>
+                  Name &amp; Location
+                  <input type="text" name="highSchoolNameLocation">
+                </label>
+                <div class="form-grid-three">
+                  <label>
+                    Year Attended
+                    <input type="text" name="highSchoolYears">
+                  </label>
+                  <fieldset class="form-question compact-question">
+                    <legend>Graduated?</legend>
+                    <div class="choice-row">
+                      <label class="choice-pill"><input type="radio" name="highSchoolGraduated" value="Y"><span>Y</span></label>
+                      <label class="choice-pill"><input type="radio" name="highSchoolGraduated" value="N"><span>N</span></label>
+                    </div>
+                  </fieldset>
+                  <label>
+                    Degree
+                    <input type="text" name="highSchoolDegree">
+                  </label>
+                </div>
+              </div>
+              <div class="application-repeat-group">
+                <h3>College</h3>
+                <label>
+                  Name &amp; Location
+                  <input type="text" name="collegeNameLocation">
+                </label>
+                <div class="form-grid-three">
+                  <label>
+                    Year Attended
+                    <input type="text" name="collegeYears">
+                  </label>
+                  <fieldset class="form-question compact-question">
+                    <legend>Graduated?</legend>
+                    <div class="choice-row">
+                      <label class="choice-pill"><input type="radio" name="collegeGraduated" value="Y"><span>Y</span></label>
+                      <label class="choice-pill"><input type="radio" name="collegeGraduated" value="N"><span>N</span></label>
+                    </div>
+                  </fieldset>
+                  <label>
+                    Degree
+                    <input type="text" name="collegeDegree">
+                  </label>
+                </div>
+              </div>
+              <div class="application-repeat-group">
+                <h3>Other</h3>
+                <label>
+                  Name &amp; Location
+                  <input type="text" name="otherSchoolNameLocation">
+                </label>
+                <div class="form-grid-three">
+                  <label>
+                    Year Attended
+                    <input type="text" name="otherSchoolYears">
+                  </label>
+                  <fieldset class="form-question compact-question">
+                    <legend>Graduated?</legend>
+                    <div class="choice-row">
+                      <label class="choice-pill"><input type="radio" name="otherSchoolGraduated" value="Y"><span>Y</span></label>
+                      <label class="choice-pill"><input type="radio" name="otherSchoolGraduated" value="N"><span>N</span></label>
+                    </div>
+                  </fieldset>
+                  <label>
+                    Degree
+                    <input type="text" name="otherSchoolDegree">
+                  </label>
+                </div>
+              </div>
+            </section>
+
+            <section class="application-step" data-step-title="Skills and qualifications" hidden>
+              <div class="application-step-head">
+                <p class="eyebrow">Skills &amp; Qualifications</p>
+                <h2>Add licenses, skills, languages, and honors.</h2>
+              </div>
+              <label>
+                Professional Licenses
+                <textarea name="professionalLicenses" rows="4" placeholder="Indicate type, number, and state of issue"></textarea>
+              </label>
+              <label>
+                Other Skills
+                <textarea name="otherSkills" rows="4" placeholder="Computer experience, typing speed, and other relevant skills"></textarea>
+              </label>
+              <label>
+                Languages Spoken, other than English
+                <input type="text" name="languagesSpoken">
+              </label>
+              <label>
+                Professional Memberships/Honors
+                <input type="text" name="membershipsHonors">
+              </label>
+            </section>
+
+            <section class="application-step" data-step-title="Emergency contact" hidden>
+              <div class="application-step-head">
+                <p class="eyebrow">Emergency Contact</p>
+                <h2>Add emergency contact information.</h2>
+              </div>
+              <div class="form-grid-two">
+                <label>
+                  Primary Contact Name/Phone
+                  <input type="text" name="primaryContactNamePhone" required>
+                </label>
+                <label>
+                  Relationship
+                  <input type="text" name="primaryContactRelationship" required>
+                </label>
+              </div>
+              <div class="form-grid-two">
+                <label>
+                  Out of State Contact Name/Phone
+                  <input type="text" name="outStateContactNamePhone">
+                </label>
+                <label>
+                  Relationship
+                  <input type="text" name="outStateContactRelationship">
+                </label>
+              </div>
+            </section>
+
+            <section class="application-step" data-step-title="Work history 1" hidden>
+              <div class="application-step-head">
+                <p class="eyebrow">Work History</p>
+                <h2>Start with your most recent employer.</h2>
+              </div>
+              <div class="form-grid-two">
+                <label>
+                  Employer Name
+                  <input type="text" name="work1EmployerName" required>
+                </label>
+                <label>
+                  Phone
+                  <input type="tel" name="work1Phone">
+                </label>
+              </div>
+              <label>
+                Address
+                <input type="text" name="work1Address">
+              </label>
+              <label>
+                Job Title/Responsibilities
+                <textarea name="work1Responsibilities" rows="4"></textarea>
+              </label>
+              <div class="form-grid-two">
+                <label>
+                  Dates (Start/End)
+                  <input type="text" name="work1Dates">
+                </label>
+                <label>
+                  Supervisor
+                  <input type="text" name="work1Supervisor">
+                </label>
+              </div>
+              <fieldset class="form-question compact-question">
+                <legend>May we contact?</legend>
+                <div class="choice-row">
+                  <label class="choice-pill"><input type="radio" name="work1MayContact" value="Yes"><span>Yes</span></label>
+                  <label class="choice-pill"><input type="radio" name="work1MayContact" value="No"><span>No</span></label>
+                </div>
+              </fieldset>
+              <label>
+                Reason for Leaving
+                <input type="text" name="work1ReasonLeaving">
+              </label>
+            </section>
+
+            <section class="application-step" data-step-title="Work history 2" hidden>
+              <div class="application-step-head">
+                <p class="eyebrow">Work History</p>
+                <h2>Add a second employer if applicable.</h2>
+              </div>
+              <div class="form-grid-two">
+                <label>
+                  Employer Name
+                  <input type="text" name="work2EmployerName">
+                </label>
+                <label>
+                  Phone
+                  <input type="tel" name="work2Phone">
+                </label>
+              </div>
+              <label>
+                Address
+                <input type="text" name="work2Address">
+              </label>
+              <label>
+                Job Title/Responsibilities
+                <textarea name="work2Responsibilities" rows="4"></textarea>
+              </label>
+              <div class="form-grid-two">
+                <label>
+                  Dates (Start/End)
+                  <input type="text" name="work2Dates">
+                </label>
+                <label>
+                  Supervisor
+                  <input type="text" name="work2Supervisor">
+                </label>
+              </div>
+              <fieldset class="form-question compact-question">
+                <legend>May we contact?</legend>
+                <div class="choice-row">
+                  <label class="choice-pill"><input type="radio" name="work2MayContact" value="Yes"><span>Yes</span></label>
+                  <label class="choice-pill"><input type="radio" name="work2MayContact" value="No"><span>No</span></label>
+                </div>
+              </fieldset>
+              <label>
+                Reason for Leaving
+                <input type="text" name="work2ReasonLeaving">
+              </label>
+            </section>
+
+            <section class="application-step" data-step-title="References" hidden>
+              <div class="application-step-head">
+                <p class="eyebrow">Personal References</p>
+                <h2>Add two personal references.</h2>
+              </div>
+              <div class="application-repeat-group">
+                <h3>Reference 1</h3>
+                <div class="form-grid-three">
+                  <label>
+                    Name
+                    <input type="text" name="reference1Name" required>
+                  </label>
+                  <label>
+                    Phone
+                    <input type="tel" name="reference1Phone" required>
+                  </label>
+                  <label>
+                    Relationship
+                    <input type="text" name="reference1Relationship" required>
+                  </label>
+                </div>
+              </div>
+              <div class="application-repeat-group">
+                <h3>Reference 2</h3>
+                <div class="form-grid-three">
+                  <label>
+                    Name
+                    <input type="text" name="reference2Name">
+                  </label>
+                  <label>
+                    Phone
+                    <input type="tel" name="reference2Phone">
+                  </label>
+                  <label>
+                    Relationship
+                    <input type="text" name="reference2Relationship">
+                  </label>
+                </div>
+              </div>
+            </section>
+
+            <section class="application-step" data-step-title="Review and submit" hidden>
+              <div class="application-step-head">
+                <p class="eyebrow">Applicant Statement</p>
+                <h2>Review the filled PDF, then download or submit.</h2>
+              </div>
+              <div class="form-grid-two">
+                <label>
+                  Applicant Signature
+                  <input type="text" name="applicantSignature" required>
+                </label>
+                <label>
+                  Date
+                  <input type="date" name="applicationDate" required>
+                </label>
+              </div>
+              <fieldset class="form-question">
+                <legend>Applicant Statement</legend>
+                <p class="question-note">
+                  I certify that the information in this application is true and complete, authorize background checks and prior-history verification, and understand that employment is at-will.
+                </p>
+                <label class="choice-pill statement-choice">
+                  <input type="checkbox" name="statementAgreement" value="Agreed" required>
+                  <span>I have read and agree to the applicant statement.</span>
+                </label>
+              </fieldset>
+
+              <div class="application-review-panel">
+                <div class="application-review-head">
+                  <h3>Review Answers</h3>
+                  <button class="button button-secondary button-small" type="button" id="applicationRefreshPreviewButton">Update Preview</button>
+                </div>
+                <div class="application-summary" id="applicationSummary"></div>
+              </div>
+
+              <div class="application-preview-panel">
+                <div class="application-review-head">
+                  <h3>Completed PDF Preview</h3>
+                  <a class="button button-secondary button-small" id="applicationOpenPdfLink" href="#" target="_blank" rel="noopener" hidden>Open PDF</a>
+                </div>
+                <div
+                  class="application-pdf-pages"
+                  id="applicationPdfPreviewPages"
+                  aria-label="Completed employment application PDF preview"
+                ></div>
+              </div>
+            </section>
+
+            <div class="application-actions">
+              <button class="button button-secondary" type="button" id="applicationPrevButton" hidden>Previous</button>
+              <button class="button button-primary" type="button" id="applicationNextButton">Next</button>
+              <button class="button button-secondary" type="button" id="applicationDownloadButton" hidden>Download PDF</button>
+              <button class="button button-primary" type="button" id="applicationSubmitButton" hidden>Download and Submit</button>
+            </div>
+            <p class="contact-note" id="applicationSubmitNote">Guardian Angel receives applications at info@guardianangelcareohio.com.</p>
+            <p class="form-response" id="applicationFormResponse" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-brand">
+        <img
+          class="footer-logo"
+          src="assets/guardian-angel-logo.png"
+          alt="Guardian Angel Home Health and Medical Transport logo"
+        >
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#careers">Careers</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+      <p>Family-owned private pay home care and medical transport in Columbus, Ohio.</p>
+    </footer>
+  </div>
+
+  <script src="assets/vendor/pdf-lib.min.js"></script>
+  <script src="assets/vendor/pdf.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
