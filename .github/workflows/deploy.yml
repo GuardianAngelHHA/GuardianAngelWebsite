@@ -51,6 +51,23 @@ jobs:
             scp -i ~/.ssh/deploy_key -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -P 22 \
               "$file" "$DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH/$file"
           done < <(git ls-files -z)
+          for file in employee-forms.html employee-forms.js employee-forms.css; do
+            expected_hash="$(sha256sum "$file" | cut -d ' ' -f 1)"
+            actual_hash="$(ssh -i ~/.ssh/deploy_key -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -p 22 \
+              "$DEPLOY_USER@$DEPLOY_HOST" "sha256sum '$DEPLOY_PATH/$file' | cut -d ' ' -f 1")"
+            if [[ "$expected_hash" != "$actual_hash" ]]; then
+              echo "Uploaded file does not match the repository copy: $file"
+              exit 1
+            fi
+            echo "Verified uploaded file: $file"
+          done
           ssh -i ~/.ssh/deploy_key -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -p 22 \
             "$DEPLOY_USER@$DEPLOY_HOST" \
             "test -f '$DEPLOY_PATH/employee-forms.html' && test -f '$DEPLOY_PATH/onboarding-submit.php'"
+          curl --fail --silent --show-error --retry 5 --retry-all-errors --retry-delay 2 \
+            "https://www.guardianangelcareohio.com/employee-forms.html?deploy=$GITHUB_SHA" |
+            grep -F 'Download completed W-4 PDF' > /dev/null
+          curl --fail --silent --show-error --retry 5 --retry-all-errors --retry-delay 2 \
+            "https://www.guardianangelcareohio.com/employee-forms.js?deploy=$GITHUB_SHA" |
+            grep -F 'function makeI9' > /dev/null
+          echo "Verified the public employee forms page."
