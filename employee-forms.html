@@ -35,17 +35,17 @@
       <section class="employee-forms-intro">
         <p class="eyebrow">Employee Onboarding</p>
         <h1>Complete your employee forms.</h1>
-        <p class="intro-copy">Complete these forms after accepting a job offer, save copies for your records, and submit them through the secure onboarding form below.</p>
+        <p class="intro-copy">Fill out the forms here and download completed copies of the official PDFs. Complete them after accepting a job offer, then sign and submit them through the secure onboarding form below.</p>
         <div class="privacy-note" role="note">
           <strong>Submit onboarding forms only after accepting a job offer.</strong>
-          <span>Completed PDFs are sent over HTTPS and stored in a private cPanel folder outside the public website. Email carries a notification only; it does not include your forms. Never upload or email images of identity documents.</span>
+          <span>Your information is used in this browser to prepare the PDFs. It is sent to Guardian Angel only when you choose to submit the forms. Submitted PDFs are sent over HTTPS and stored in a private cPanel folder outside the public website. Email carries a notification only; it does not include your forms. Never upload or email images of identity documents.</span>
         </div>
       </section>
 
       <section class="onboarding-submit-card" id="submit-onboarding-forms" aria-labelledby="onboarding-submit-title">
         <p class="eyebrow">After accepting an offer</p>
         <h2 id="onboarding-submit-title">Submit your onboarding forms</h2>
-        <p>Complete and save each official PDF, then attach all three below. Form I-9 Section 1 must be completed after you accept an offer and no later than your first day of work. Bring your chosen acceptable documents to Guardian Angel so the employer can complete its review and Section 2.</p>
+        <p>Download the completed PDFs below, sign them using Guardian Angel’s approved process, then attach all three here. Form I-9 Section 1 must be completed after you accept an offer and no later than your first day of work. Bring your chosen acceptable documents to Guardian Angel so the employer can complete its review and Section 2.</p>
         <form id="onboardingSubmissionForm" class="onboarding-submit-form" action="onboarding-submit.php" method="post" enctype="multipart/form-data">
           <label>
             Completed Form W-4 (PDF, up to 10 MB)
@@ -73,25 +73,99 @@
           <span class="form-number">01</span>
           <p class="eyebrow">Federal tax withholding</p>
           <h2>Form W-4</h2>
-          <p>Complete the current 2026 Employee’s Withholding Certificate. The PDF can be filled in a compatible browser or PDF reader.</p>
-          <a class="button button-primary" href="Forms/Employee_W-4_2026.pdf" target="_blank" rel="noopener">Open fillable W-4</a>
-          <p class="form-help">After completing it, use your PDF reader’s Save or Download option. You can also <a href="https://www.irs.gov/forms-pubs/about-form-w-4" target="_blank" rel="noopener">view the latest W-4 at IRS.gov</a>.</p>
+          <p>Enter your personal information and withholding choices. The fields below prepare the official 2026 W-4 PDF for download.</p>
+          <form class="official-form" id="w4Form" novalidate>
+            <div class="it4-section-title">Step 1: Personal information</div>
+            <div class="it4-grid">
+              <label>First name and middle initial<input name="firstMiddle" autocomplete="given-name" required></label>
+              <label>Last name<input name="lastName" autocomplete="family-name" required></label>
+              <label class="it4-span-two">Home address<input name="address" autocomplete="street-address" required></label>
+              <label>City, state, ZIP code<input name="cityStateZip" autocomplete="address-level2" required></label>
+              <label>Social Security number<input name="ssn" inputmode="numeric" autocomplete="off" required></label>
+            </div>
+            <fieldset class="choice-group">
+              <legend>Filing status (choose one)</legend>
+              <label><input type="radio" name="filingStatus" value="single" required> Single or married filing separately</label>
+              <label><input type="radio" name="filingStatus" value="married"> Married filing jointly or qualifying surviving spouse</label>
+              <label><input type="radio" name="filingStatus" value="head"> Head of household</label>
+            </fieldset>
+            <div class="it4-section-title">Steps 2–4: Complete only if they apply</div>
+            <label class="choice-row"><input type="checkbox" name="multipleJobs"> I am using Step 2(c) for exactly two jobs total.</label>
+            <div class="it4-grid it4-grid-three">
+              <label>Step 3: Total dependent and other credits ($)<input type="number" name="credits" min="0" step="1"></label>
+              <label>Step 4(a): Other income ($)<input type="number" name="otherIncome" min="0" step="1"></label>
+              <label>Step 4(b): Deductions ($)<input type="number" name="deductions" min="0" step="1"></label>
+              <label>Step 4(c): Extra withholding each pay period ($)<input type="number" name="extraWithholding" min="0" step="0.01"></label>
+            </div>
+            <label class="choice-row"><input type="checkbox" name="exempt"> I claim exemption from withholding for 2026 and meet both conditions in the official instructions.</label>
+            <p class="it4-instruction">If you claim exemption, do not complete Steps 2–4. Your signature and date are left blank for signing through Guardian Angel’s approved process.</p>
+            <div class="it4-actions">
+              <button class="button button-primary" type="button" data-download-form="w4">Download completed W-4 PDF</button>
+              <button class="button button-secondary" type="reset">Clear W-4 fields</button>
+            </div>
+            <p class="form-response" id="w4Response" aria-live="polite"></p>
+          </form>
+          <p class="form-help">Use the <a href="https://www.irs.gov/forms-pubs/about-form-w-4" target="_blank" rel="noopener">IRS W-4 instructions</a> for withholding choices. Do not enter information you are unsure about.</p>
         </article>
 
         <article class="employee-form-card">
           <span class="form-number">02</span>
           <p class="eyebrow">Employment eligibility</p>
           <h2>Form I-9</h2>
-          <p>Complete Section 1 after accepting the job offer and no later than your first day of work. Your employer completes Section 2 after reviewing acceptable documents.</p>
-          <a class="button button-primary" href="Forms/Employment_Eligibility_I-9.pdf" target="_blank" rel="noopener">Open fillable I-9</a>
-          <p class="form-help">You choose which acceptable documents to present. Do not email document images. <a href="https://www.uscis.gov/i-9-central" target="_blank" rel="noopener">Read USCIS I-9 guidance</a>.</p>
+          <p>Enter your information for Section 1 after accepting the job offer and no later than your first day of work. Your employer completes Section 2 after reviewing acceptable documents.</p>
+          <form class="official-form" id="i9Form" novalidate>
+            <div class="it4-section-title">Section 1: Employee information</div>
+            <div class="it4-grid">
+              <label>Last name<input name="lastName" autocomplete="family-name" required></label>
+              <label>First name<input name="firstName" autocomplete="given-name" required></label>
+              <label>Middle initial<input name="middleInitial" maxlength="1" autocomplete="additional-name"></label>
+              <label>Other last names used<input name="otherLastNames"></label>
+              <label class="it4-span-two">Street address<input name="address" autocomplete="street-address" required></label>
+              <label>Apartment number<input name="apt"></label>
+              <label>City or town<input name="city" autocomplete="address-level2" required></label>
+              <label>State
+                <select name="state" autocomplete="address-level1" required>
+                  <option value="">Select state</option>
+                  <option>AL</option><option>AK</option><option>AZ</option><option>AR</option><option>CA</option><option>CO</option><option>CT</option><option>DE</option><option>DC</option><option>FL</option><option>GA</option><option>HI</option><option>ID</option><option>IL</option><option>IN</option><option>IA</option><option>KS</option><option>KY</option><option>LA</option><option>ME</option><option>MD</option><option>MA</option><option>MI</option><option>MN</option><option>MS</option><option>MO</option><option>MT</option><option>NE</option><option>NV</option><option>NH</option><option>NJ</option><option>NM</option><option>NY</option><option>NC</option><option>ND</option><option>OH</option><option>OK</option><option>OR</option><option>PA</option><option>RI</option><option>SC</option><option>SD</option><option>TN</option><option>TX</option><option>UT</option><option>VT</option><option>VA</option><option>WA</option><option>WV</option><option>WI</option><option>WY</option><option>AS</option><option>GU</option><option>MP</option><option>PR</option><option>VI</option><option>CAN</option><option>MEX</option>
+                </select>
+              </label>
+              <label>ZIP code<input name="zip" inputmode="numeric" autocomplete="postal-code" required></label>
+              <label>Date of birth<input name="dob" type="date" required></label>
+              <label>U.S. Social Security number (required if employer uses E-Verify)<input name="ssn" inputmode="numeric" autocomplete="off"></label>
+              <label>Email address<input name="email" type="email" autocomplete="email"></label>
+              <label>Telephone number<input name="phone" type="tel" autocomplete="tel"></label>
+            </div>
+            <fieldset class="choice-group">
+              <legend>Citizenship or immigration status (choose one)</legend>
+              <label><input type="radio" name="status" value="citizen" required> A citizen of the United States</label>
+              <label><input type="radio" name="status" value="national"> A noncitizen national of the United States</label>
+              <label><input type="radio" name="status" value="permanent"> A lawful permanent resident</label>
+              <label><input type="radio" name="status" value="authorized"> An alien authorized to work until an expiration date, if any</label>
+            </fieldset>
+            <div class="it4-grid" id="i9IdentifierFields" hidden>
+              <label id="i9ANumberWrap" hidden>USCIS or A-Number<input name="aNumber"></label>
+              <label id="i9ExpirationWrap" hidden>Work authorization expiration date, if any<input name="expirationDate" type="date"></label>
+              <label id="i9IdentifierTypeWrap" hidden>Choose one identifier
+                <select name="identifierType"><option value="">Select one</option><option value="aNumber">USCIS or A-Number</option><option value="i94">Form I-94 admission number</option><option value="passport">Foreign passport number and country</option></select>
+              </label>
+              <label id="i9IdentifierValueWrap" hidden>Identifier number<input name="identifierValue"></label>
+              <label id="i9PassportCountryWrap" hidden>Passport country of issuance<input name="passportCountry"></label>
+            </div>
+            <p class="it4-instruction">The employee signature and date are left blank. This download page does not verify identity for an electronic I-9 signature. Sign Section 1 in person or through Guardian Angel’s approved I-9 process. If a preparer or translator helped, have them complete Supplement A on page 3. You choose which acceptable documents to present; do not email document images.</p>
+            <div class="it4-actions">
+              <button class="button button-primary" type="button" data-download-form="i9">Download completed I-9 PDF</button>
+              <button class="button button-secondary" type="reset">Clear I-9 fields</button>
+            </div>
+            <p class="form-response" id="i9Response" aria-live="polite"></p>
+          </form>
+          <p class="form-help"><a href="https://www.uscis.gov/i-9-central" target="_blank" rel="noopener">Read USCIS I-9 guidance</a>.</p>
         </article>
 
         <article class="employee-form-card employee-form-card-wide">
           <span class="form-number">03</span>
           <p class="eyebrow">Ohio tax withholding</p>
           <h2>Ohio IT 4</h2>
-          <p>Complete the fields below. When you select <strong>Print / Save as PDF</strong>, choose “Save as PDF” in the print dialog to keep a copy. You may also print and sign the form.</p>
+          <p>Complete the fields below to prepare the official Ohio IT 4 PDF. The signature line is left blank for signing through Guardian Angel’s approved process.</p>
           <form class="it4-form" id="it4Form">
             <div class="it4-section-title">Section I: Personal information</div>
             <div class="it4-grid">
@@ -108,11 +182,12 @@
               <label>2. Enter 0 if single or spouse files separately; otherwise 1<input type="number" name="maritalExemption" min="0" max="1" value="0" required></label>
               <label>3. Number of dependents<input type="number" name="dependents" min="0" value="0" required></label>
               <label>4. Total exemptions (lines 1 + 2 + 3)<input type="number" name="totalExemptions" readonly></label>
-              <label>5. Additional Ohio withholding per pay period ($)<input type="number" name="additionalWithholding" min="0" step="0.01" value="0.00"></label>
+              <label>5. Additional Ohio withholding per pay period ($)<input type="number" name="additionalWithholding" min="0" step="1" value="0"></label>
             </div>
 
             <div class="it4-section-title">Section III: Withholding waiver, if applicable</div>
             <p class="it4-instruction">Check a box only if it applies to you. Review the official instructions before claiming a waiver.</p>
+            <p class="it4-instruction">If a waiver applies, Ohio’s instructions say to complete Sections I, III, and IV only; Section II will be left blank in your PDF.</p>
             <div class="it4-checks">
               <label><input type="checkbox" name="waiver" value="Resident of Indiana, Kentucky, Michigan, Pennsylvania, or West Virginia"> I am a full-year resident of Indiana, Kentucky, Michigan, Pennsylvania, or West Virginia.</label>
               <label><input type="checkbox" name="waiver" value="Ohio resident military servicemember stationed outside Ohio"> I am an Ohio resident military servicemember stationed outside Ohio on active duty military orders.</label>
@@ -124,15 +199,15 @@
             <div class="it4-section-title">Section IV: Signature</div>
             <p class="it4-instruction">By signing, I declare under penalties of perjury that this certificate is true, correct, and complete.</p>
             <div class="it4-grid">
-              <label>Type your full legal name as your signature<input name="signature" autocomplete="name" required></label>
-              <label>Date<input name="signatureDate" type="date" required></label>
+              <p class="it4-instruction">The signature and date lines are left blank. Sign using Guardian Angel’s approved process.</p>
             </div>
             <div class="it4-actions">
-              <button class="button button-primary" type="button" id="printIt4">Print / Save as PDF</button>
+              <button class="button button-primary" type="button" data-download-form="it4">Download completed Ohio IT 4 PDF</button>
               <button class="button button-secondary" type="reset">Clear IT 4 fields</button>
             </div>
           </form>
-          <p class="form-help">The official Ohio IT 4 includes instructions and other details. <a href="Forms/Ohio_IT-4.pdf" target="_blank" rel="noopener">Open the official Ohio IT 4 PDF</a> or <a href="https://tax.ohio.gov/business/ohio-business-taxes/withholding" target="_blank" rel="noopener">review Ohio employer withholding information</a>.</p>
+          <p class="form-response" id="it4Response" aria-live="polite"></p>
+          <p class="form-help">The official Ohio IT 4 includes instructions and other details. <a href="https://tax.ohio.gov/business/employer-withholding" target="_blank" rel="noopener">Review Ohio employer withholding information</a>.</p>
         </article>
       </section>
 
@@ -157,6 +232,7 @@
       <p class="footer-note">© <span id="currentYear"></span> Guardian Angel Home Health &amp; Medical Transport</p>
     </footer>
   </div>
+  <script src="assets/vendor/pdf-lib.min.js" defer></script>
   <script src="employee-forms.js" defer></script>
 </body>
 </html>

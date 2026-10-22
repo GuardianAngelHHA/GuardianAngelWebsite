@@ -161,6 +161,72 @@
   margin-top: 8px;
 }
 
+.official-form {
+  display: grid;
+  gap: 17px;
+  margin-top: 22px;
+}
+
+.choice-group {
+  display: grid;
+  gap: 9px;
+  margin: 0;
+  padding: 16px 18px;
+  border: 1px solid var(--line-strong);
+  border-radius: 14px;
+}
+
+.choice-group legend {
+  padding: 0 6px;
+  color: var(--navy-deep);
+  font-weight: 800;
+}
+
+.choice-group label,
+.choice-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.55;
+}
+
+.choice-group input,
+.choice-row input {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: var(--navy);
+}
+
+.official-form .it4-grid label {
+  display: grid;
+}
+
+.official-form input:not([type="checkbox"]):not([type="radio"]),
+.official-form select {
+  width: 100%;
+  min-height: 46px;
+  padding: 10px 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--navy-deep);
+  font: inherit;
+}
+
+.official-form input:disabled {
+  background: var(--mist);
+}
+
+.form-response {
+  min-height: 1.5em;
+  margin: 0;
+  color: var(--navy-deep);
+  font-weight: 700;
+  line-height: 1.5;
+}
+
 .form-help {
   margin: 18px 0 0;
   color: var(--ink);
@@ -319,118 +385,5 @@
   .onboarding-submit-card,
   .return-instructions {
     padding: 24px 20px;
-  }
-}
-
-@media print {
-  @page {
-    size: letter;
-    margin: 0.45in;
-  }
-
-  body,
-  body::before {
-    background: #fff !important;
-  }
-
-  .employee-forms-page > header,
-  .employee-forms-intro,
-  .onboarding-submit-card,
-  .employee-form-card:not(.employee-form-card-wide),
-  .return-instructions,
-  .employee-forms-footer,
-  .employee-form-card-wide > .form-number,
-  .employee-form-card-wide > .eyebrow,
-  .employee-form-card-wide > p,
-  .it4-actions,
-  .employee-form-card-wide > .form-help {
-    display: none !important;
-  }
-
-  .employee-forms-main {
-    max-width: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .employee-form-cards {
-    display: block;
-  }
-
-  .employee-form-card-wide {
-    padding: 0;
-    border: 0;
-    border-radius: 0;
-    box-shadow: none;
-  }
-
-  .employee-form-card-wide h2 {
-    margin: 0 0 10px;
-    text-align: center;
-    font: 700 17pt Arial, sans-serif;
-  }
-
-  .employee-form-card-wide h2::after {
-    content: " - Employee's Withholding Exemption Certificate";
-  }
-
-  .it4-form {
-    gap: 8px;
-    margin: 0;
-    color: #000;
-    font: 9pt Arial, sans-serif;
-  }
-
-  .it4-section-title {
-    padding-bottom: 3px;
-    border-color: #555;
-    color: #000;
-    font-size: 10pt;
-  }
-
-  .it4-grid,
-  .it4-grid-three {
-    gap: 6px 10px;
-  }
-
-  .it4-grid label {
-    gap: 2px;
-    color: #000;
-    font-size: 8pt;
-  }
-
-  .it4-grid input {
-    min-height: 25px;
-    padding: 3px 5px;
-    border: 0;
-    border-bottom: 1px solid #555;
-    border-radius: 0;
-    background: #fff !important;
-    color: #000;
-    font: 10pt Arial, sans-serif;
-    appearance: none;
-  }
-
-  .it4-instruction,
-  .it4-checks label {
-    color: #000;
-    font-size: 8pt;
-    line-height: 1.35;
-  }
-
-  .it4-checks {
-    gap: 4px;
-  }
-
-  input[type="checkbox"] {
-    width: 13px;
-    height: 13px;
-    accent-color: #000;
-    print-color-adjust: exact;
-  }
-
-  .it4-form,
-  .it4-form * {
-    break-inside: avoid;
   }
 }
