@@ -48,8 +48,9 @@ jobs:
             remote_dir="$DEPLOY_PATH/$(dirname "$file")"
             ssh -i ~/.ssh/deploy_key -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -p 22 \
               "$DEPLOY_USER@$DEPLOY_HOST" "mkdir -p '$remote_dir'"
-            scp -i ~/.ssh/deploy_key -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -P 22 \
-              "$file" "$DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH/$file"
+            echo "Uploading $file"
+            ssh -i ~/.ssh/deploy_key -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -p 22 \
+              "$DEPLOY_USER@$DEPLOY_HOST" "cat > '$DEPLOY_PATH/$file'" < "$file"
           done < <(git ls-files -z)
           for file in employee-forms.html employee-forms.js employee-forms.css; do
             expected_hash="$(sha256sum "$file" | cut -d ' ' -f 1)"
