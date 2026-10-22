@@ -59,7 +59,7 @@ jobs:
               echo "Uploaded file does not match the repository copy: $file (expected $expected_hash, found $actual_hash)"
               ssh -i ~/.ssh/deploy_key -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -p 22 \
                 "$DEPLOY_USER@$DEPLOY_HOST" \
-                "printf 'SSH home: %s\\n' \"\$HOME\"; printf 'Working directory: %s\\n' \"\$PWD\"; find \"\$HOME\" -maxdepth 6 -type f -name 'employee-forms.html' -print 2>/dev/null"
+                "hostname -f; id -un; printf 'SSH home: %s\\n' \"\$HOME\"; printf 'Working directory: %s\\n' \"\$PWD\"; stat -c '%n %s bytes %y' '$DEPLOY_PATH/employee-forms.html'; find \"\$HOME\" -maxdepth 6 -type f -name 'employee-forms.html' -print 2>/dev/null"
               exit 1
             fi
             echo "Verified uploaded file: $file"
